@@ -6,7 +6,6 @@
   --bg-color-2: #fff;
 }
 
-@import url("https://fonts.cdnfonts.com/css/roboto?styles=14394,14400,14396,14403");
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap");
 
 a {
@@ -17,11 +16,164 @@ a {
 ul {
   list-style: none;
 }
+input {
+  outline: 0 !important;
+}
+button {
+  cursor: pointer;
+}
 
 .container {
   max-width: 1600px;
   margin: 0px auto;
-  border: 1px solid #000;
+}
+.blur-background {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.20);
+  z-index: 9998;
+}
+
+.popup {
+  display: none;
+  overflow: hidden;
+  position: fixed;
+  z-index: 9999;
+  width: 528px;
+  height: 581px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  margin-left: 536px;
+  margin-top: 222px;
+  animation: popup-fade-in 0.5s ease-in-out;
+}
+@keyframes popup-fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.closebtn {
+  border: none;
+  width: 18px;
+height: 18px;
+flex-shrink: 0;
+color: #000;
+margin-left: 495px;
+margin-top: 14px;
+}
+.popup-title {
+  color: var(--main-text-color);
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.6px;
+}
+.popup-form {
+  transform: translateY(-14px);
+}
+.popup-form > label {
+  color: var(--text-color-2);
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.12px;
+  margin-left: 40px;
+}
+.popup-form > input {
+  width: 448px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  margin-left: 40px;
+}
+.popup-form > textarea {
+  width: 448px;
+  height: 120px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.12px;
+  margin-left: 40px;
+}
+.popup-form > textarea::placeholder {
+  padding: 16px 12px;
+  color: rgba(117, 117, 117, 0.5);
+}
+input[type="checkbox"] {
+  width: 16px;
+  height: 15px;
+  flex-shrink: 0;
+  border: 1px solid #212121;
+  border-radius: 1px;
+  margin-top: 25px;
+  margin-left: 52px;
+  cursor: pointer;
+}
+.popup-form > p {
+  color: var(--text-color-2);
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.42px;
+  transform: translateY(-36px);
+  margin-left: 12px;
+}
+.popup-form > p > a {
+  color: #2196f3;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.42px;
+  text-decoration-line: underline;
+  margin-left: 5px;
+}
+.send-btn {
+  width: 200px;
+height: 50px;
+flex-shrink: 0;
+border: none;
+border-radius: 4px;
+background: var(--accent-color);
+box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+margin-left: 164px;
+
+color: #FFF;
+text-align: center;
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: 30px; /* 187.5% */
+letter-spacing: 0.96px;
 }
 
 header {
@@ -432,7 +584,8 @@ footer {
 address > a {
   position: absolute;
   margin-left: 215px;
-  transform: translateY(60px);
+  transform: translateY(41px);
+  margin-top: 19px;
 }
 
 .contacts {
@@ -471,14 +624,13 @@ address > a {
   background-color: var(--accent-color);
 }
 
-.ur-email-inp {
-  margin-left: 815px;
-}
 .ur-email-title {
   margin-left: 195px;
   transform: translateY(-90px);
 }
 .ur-email-inp {
+  position: absolute;
+  transform: translateY(-80px);
   width: 358px;
   height: 50px;
   flex-shrink: 0;
@@ -486,6 +638,7 @@ address > a {
   border: 1px solid rgba(255, 255, 255, 0.3);
   background: rgba(33, 150, 243, 0);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+  margin-left: 785px;
 }
 .ur-email-inp::placeholder {
   display: flex;
@@ -503,20 +656,29 @@ address > a {
   line-height: 20px;
   letter-spacing: 0.48px;
 }
-.ur-email-inp-send-btn{
+input,
+textarea {
+  outline: 0 !important;
+}
+.ur-email-inp-send-btn {
   width: 200px;
-height: 50px;
-flex-shrink: 0;
-border: none;
-border-radius: 4px;
-background: #2196F3;
-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
-color: #FFF;
-text-align: center;
-font-family: Roboto;
-font-size: 16px;
-font-style: normal;
-font-weight: 700;
-line-height: 30px; /* 187.5% */
-letter-spacing: 0.96px;
+  height: 50px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 4px;
+  background: #2196f3;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+  color: #fff;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+  letter-spacing: 0.96px;
+  margin-left: 1185px;
+  transform: translateY(-78px);
+}
+.ur-email-inp-send-btn > img {
+  transform: translate(10px, 5px);
 }
